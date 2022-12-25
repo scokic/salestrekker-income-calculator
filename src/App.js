@@ -7,35 +7,6 @@ import IncomeDetails from "./components/income-details"
 const App = () => {
     const [activeStep, setActiveStep] = useState(1)
 
-    const frequency = [
-        {
-            value: "weekly",
-            label: "Weekly",
-        },
-        {
-            value: "fortnightly",
-            label: "Fortnightly",
-        },
-        {
-            value: "monthly",
-            label: "Monthly",
-        },
-        {
-            value: "annually",
-            label: "Annually",
-        },
-    ]
-    const incomeType = [
-        {
-            value: "gross",
-            label: "Gross income",
-        },
-        {
-            value: "net",
-            label: "Net income",
-        },
-    ]
-
     const [formData, setFormData] = useState({
         income: "",
         frequency: "weekly",
@@ -53,8 +24,7 @@ const App = () => {
                     <Income
                         formData={formData}
                         setFormData={setFormData}
-                        incomeType={incomeType}
-                        frequency={frequency}
+                        setActiveStep={setActiveStep}
                     />
                 ) : (
                     <IncomeDetails />
