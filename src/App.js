@@ -1,8 +1,67 @@
-import React from "react"
+import React, { useState } from "react"
+import Steps from "./components/steps"
 import "./style.css"
+import Income from "./components/income"
+import IncomeDetails from "./components/income-details"
 
 const App = () => {
-    return <div>This React app was made from scratch.</div>
+    const [activeStep, setActiveStep] = useState(1)
+
+    const frequency = [
+        {
+            value: "weekly",
+            label: "Weekly",
+        },
+        {
+            value: "fortnightly",
+            label: "Fortnightly",
+        },
+        {
+            value: "monthly",
+            label: "Monthly",
+        },
+        {
+            value: "annually",
+            label: "Annually",
+        },
+    ]
+    const incomeType = [
+        {
+            value: "gross",
+            label: "Gross income",
+        },
+        {
+            value: "net",
+            label: "Net income",
+        },
+    ]
+
+    const [formData, setFormData] = useState({
+        income: "",
+        frequency: "weekly",
+        incomeType: null,
+    })
+
+    return (
+        <div className="h-screen flex justify-center md:pt-56">
+            <div className="max-w-[700px] w-full p-4">
+                <Steps activeStep={activeStep} setActiveStep={setActiveStep} />
+
+                <h2 className="text-3xl mb-4 pt-8">Income tax calculator</h2>
+                {/* we could have this as part of the routes, if we would need it in the URL */}
+                {activeStep === 1 ? (
+                    <Income
+                        formData={formData}
+                        setFormData={setFormData}
+                        incomeType={incomeType}
+                        frequency={frequency}
+                    />
+                ) : (
+                    <IncomeDetails />
+                )}
+            </div>
+        </div>
+    )
 }
 
 export default App
