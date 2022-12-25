@@ -1,7 +1,8 @@
 import React from "react"
 import Button from "./button"
+import { frequency, incomeType } from "../consts"
 
-const Income = ({ formData, setFormData, incomeType, frequency }) => {
+const Income = ({ formData, setFormData, setActiveStep }) => {
     const isFormDisabled =
         formData.incomeType === null ||
         formData.income === "" ||
@@ -96,6 +97,7 @@ const Income = ({ formData, setFormData, incomeType, frequency }) => {
                     onClick={(e) => {
                         e.preventDefault()
                         console.log(formData)
+                        setActiveStep(2)
                     }}
                 />
             </form>
