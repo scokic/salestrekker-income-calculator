@@ -13,21 +13,32 @@ const App = () => {
         incomeType: null,
     })
 
+    const isFormDisabled =
+        formData.incomeType === null ||
+        formData.income === "" ||
+        formData.income == 0
+            ? true
+            : false
+
     return (
         <div className="h-screen flex justify-center md:pt-56">
             <div className="max-w-[700px] w-full p-4">
-                <Steps activeStep={activeStep} setActiveStep={setActiveStep} />
+                <Steps
+                    activeStep={activeStep}
+                    setActiveStep={setActiveStep}
+                    disabledStep={isFormDisabled}
+                />
 
                 <h2 className="text-3xl mb-4 pt-8">Income tax calculator</h2>
-                {/* we could have this as part of the routes, if we would need it in the URL */}
                 {activeStep === 1 ? (
                     <Income
                         formData={formData}
                         setFormData={setFormData}
                         setActiveStep={setActiveStep}
+                        isFormDisabled={isFormDisabled}
                     />
                 ) : (
-                    <IncomeDetails />
+                    <IncomeDetails formData={formData} />
                 )}
             </div>
         </div>
