@@ -71,8 +71,8 @@ const IncomeDetails = ({ formData }) => {
             baseDailyNetIncome = {
                 frequency: "weekly",
                 frequencyLabel: "weekly",
-                gross: netIncome / (7 - taxRate),
-                tax: (netIncome / (7 - taxRate)) * taxRate,
+                gross: netIncome / (1 - taxRate),
+                tax: (netIncome / (1 - taxRate)) * taxRate,
                 net: netIncome,
             }
         }
