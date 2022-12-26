@@ -1,5 +1,8 @@
 # salestrekker-income-calculator
 
+## Link to the hosted app
+https://salestrekker-income-calculator.vercel.app/
+
 ### Starting the app
 
 In order to start the app you should install dependencies by running `yarn` and start the app with run `yarn start`.
