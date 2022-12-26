@@ -17,6 +17,7 @@ You can build the production version of the app with the command `yarn build`.
 -   We can we can use [React Router](https://reactrouter.com/en/main) for navigating between screens. In this example I did not see the need for that.
 -   Components such as buttons, input fields and tab selection can all be extracted into separate atom/molecule components in a real-world app, since that would make it much more reusable and maintainable throughout the app. I love the concepts covered via [atomic design](https://bradfrost.com/blog/post/atomic-web-design/), even though it's not always the best option
 -   Form validation can be done by using form validators such as [yup](https://github.com/jquense/yup)
+-   Currently the tax rate is hard-coded to be 30%. This should probably be changed so that progressive tax is applied.
 
 ### Info: Error in calculation logic
 Table calculation is done by firstly converting chosen income into daily income, which is afterwards calculated to all needed time frames. This is not the most precise operation and there are small differences when calculating income.
