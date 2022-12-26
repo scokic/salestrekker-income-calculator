@@ -26,3 +26,5 @@ export const incomeType = [
         label: "Net income",
     },
 ]
+
+export const taxRate = 0.3

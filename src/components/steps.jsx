@@ -2,7 +2,7 @@ import React from "react"
 import InfoSvg from "../icons/info.svg"
 import CardSvg from "../icons/card.svg"
 
-const Steps = ({ activeStep, setActiveStep }) => {
+const Steps = ({ activeStep, setActiveStep, disabledStep }) => {
     const steps = [
         {
             id: 1,
@@ -20,9 +20,11 @@ const Steps = ({ activeStep, setActiveStep }) => {
         <div className="grid grid-cols-2 w-full divide-x divide-gray-200 overflow-hidden rounded-md border border-gray-200 text-sm text-gray-500 cursor-pointer">
             {steps.map((step) => {
                 return (
-                    <div
+                    <button
+                        disabled={disabledStep}
                         className={`flex items-center justify-center p-4"  ${
-                            step.id === activeStep && "bg-gray-200"
+                            step.id === activeStep &&
+                            "bg-green-200 border border-green-200"
                         }`}
                         key={step.id}
                         onClick={() => setActiveStep(step.id)}
@@ -32,7 +34,7 @@ const Steps = ({ activeStep, setActiveStep }) => {
                         </div>
 
                         <p className="ml-4">{step.title}</p>
-                    </div>
+                    </button>
                 )
             })}
         </div>
